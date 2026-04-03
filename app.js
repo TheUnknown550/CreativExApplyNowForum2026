@@ -121,7 +121,6 @@
       return;
     }
 
-    updateConnectionUi();
     updateAllFileLabels(form);
 
     if (state.initialized) {
@@ -586,29 +585,6 @@
     }
 
     return base.replace(/\/+$/, "") + "/" + path.replace(/^\/+/, "");
-  }
-
-  function updateConnectionUi() {
-    var connectionMode = document.getElementById("connection-mode");
-    var connectionTitle = document.getElementById("connection-title");
-    var connectionDetail = document.getElementById("connection-detail");
-    var endpoint = resolveEndpoint();
-
-    if (connectionMode) {
-      connectionMode.textContent = state.config.mockMode ? "Mock Mode" : "API Connected";
-    }
-
-    if (connectionTitle) {
-      connectionTitle.textContent = state.config.mockMode
-        ? "Mock submission is active"
-        : "Ready to send to a live endpoint";
-    }
-
-    if (connectionDetail) {
-      connectionDetail.innerHTML = state.config.mockMode
-        ? 'Endpoint placeholder: <code>' + escapeHtml(endpoint) + "</code>"
-        : 'Active endpoint: <code>' + escapeHtml(endpoint) + "</code>";
-    }
   }
 
   function updateAllFileLabels(form) {
