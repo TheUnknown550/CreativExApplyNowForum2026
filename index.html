@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CreativEx 2026 | Application Form</title>
+    <meta
+      name="description"
+      content="ใบสมัครหลักสูตร CreativEx 2026 สำหรับผู้บริหารระดับสูงด้านเศรษฐกิจสร้างสรรค์และซอฟต์พาวเวอร์"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/webp" href="./images/logo-header-footer.webp" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-panel" aria-labelledby="page-title">
+        <div class="hero-panel__overlay"></div>
+        <div class="hero-brand">
+          <img
+            class="hero-brand__logo"
+            src="./images/logo-header-footer.webp"
+            alt="CreativEx 2026"
+          />
+          <div class="hero-badge">Creative Economy and Soft Power Executive Leadership</div>
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="section-chip">CreativEx 2026 Application Form</p>
+            <img
+              class="hero-logo"
+              src="./images/logo-hero.webp"
+              alt="CreativEx 2026 City Branding & Creative Organization"
+            />
+            <h1 id="page-title">ใบสมัครหลักสูตร CreativEx 2026</h1>
+            <p class="hero-description">
+              แบบฟอร์มสมัครสำหรับหลักสูตรผู้บริหารระดับสูงด้านเศรษฐกิจสร้างสรรค์และซอฟต์พาวเวอร์
+              จัดทำในรูปแบบที่พร้อมเชื่อมต่อ API สำหรับระบบรับสมัครในขั้นตอนถัดไป
+            </p>
+            <div class="hero-actions">
+              <div class="hero-pill">
+                <span class="hero-pill__label">Theme</span>
+                <span class="hero-pill__value">CreativEx Site Matched</span>
+              </div>
+              <div class="hero-pill hero-pill--warm">
+                <span class="hero-pill__label">Submission</span>
+                <span class="hero-pill__value" id="connection-mode">Mock Mode</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="process-card" aria-labelledby="process-title">
+            <p class="section-chip section-chip--dark">Application Flow</p>
+            <h2 id="process-title">วิธีสมัครเข้าร่วมหลักสูตร</h2>
+            <ol class="process-list">
+              <li>กรอกข้อมูลผู้สมัครและแนบเอกสารให้ครบถ้วน</li>
+              <li>เข้าสู่กระบวนการคัดเลือกและการสัมภาษณ์ตามประกาศของหลักสูตร</li>
+              <li>เมื่อผ่านการคัดเลือก ทีมงานจะแจ้งผลและรายละเอียดขั้นตอนการชำระเงินต่อไป</li>
+            </ol>
+            <p class="process-note">
+              ฟอร์มนี้ออกแบบให้กรอกง่ายขึ้นทั้งบนเดสก์ท็อปและมือถือ พร้อมรองรับการเชื่อมต่อ API
+              เพื่อส่งข้อมูลเข้าสู่ระบบรับสมัครจริงในภายหลัง
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="form-shell" aria-labelledby="form-title">
+        <div class="form-shell__glow"></div>
+        <div class="form-head">
+          <div>
+            <p class="section-chip">Apply Now</p>
+            <h2 id="form-title">ข้อมูลผู้สมัคร</h2>
+            <p class="form-lead">
+              กรุณากรอกข้อมูลให้ครบถ้วนตามเอกสารทางการ ข้อมูลที่มีเครื่องหมาย
+              <span class="required-marker">*</span> เป็นข้อมูลที่จำเป็น
+            </p>
+          </div>
+          <div class="connection-card" aria-live="polite">
+            <p class="connection-card__label">API Readiness</p>
+            <p class="connection-card__mode" id="connection-title">Mock submission is active</p>
+            <p class="connection-card__detail" id="connection-detail">
+              Endpoint placeholder: <code>/applications</code>
+            </p>
+          </div>
+        </div>
+
+        <div class="status-stack">
+          <section class="error-summary" id="error-summary" hidden tabindex="-1" aria-live="assertive">
+            <h3>โปรดตรวจสอบข้อมูลต่อไปนี้</h3>
+            <ul id="error-summary-list"></ul>
+          </section>
+
+          <section class="submit-status" id="submit-status" aria-live="polite"></section>
+        </div>
+
+        <form id="application-form" class="application-form" novalidate>
+          <section class="form-section" aria-labelledby="section-identity">
+            <div class="section-heading">
+              <p class="section-chip section-chip--dark">Section 01</p>
+              <h3 id="section-identity">Applicant Identity</h3>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="firstNameTh">ชื่อผู้เรียน (ภาษาไทย) <span class="required-marker">*</span></label>
+                <input
+                  id="firstNameTh"
+                  name="firstNameTh"
+                  type="text"
+                  autocomplete="given-name"
+                  aria-describedby="firstNameTh-help firstNameTh-error"
+                />
+                <p class="field-help" id="firstNameTh-help">กรอกชื่อจริงภาษาไทยตามเอกสารทางการ</p>
+                <p class="field-error" id="firstNameTh-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="lastNameTh">นามสกุลผู้เรียน (ภาษาไทย) <span class="required-marker">*</span></label>
+                <input
+                  id="lastNameTh"
+                  name="lastNameTh"
+                  type="text"
+                  autocomplete="family-name"
+                  aria-describedby="lastNameTh-help lastNameTh-error"
+                />
+                <p class="field-help" id="lastNameTh-help">กรอกนามสกุลภาษาไทยตามเอกสารทางการ</p>
+                <p class="field-error" id="lastNameTh-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="firstNameEn">ชื่อผู้เรียน (English) <span class="required-marker">*</span></label>
+                <input
+                  id="firstNameEn"
+                  name="firstNameEn"
+                  type="text"
+                  autocomplete="given-name"
+                  aria-describedby="firstNameEn-help firstNameEn-error"
+                />
+                <p class="field-help" id="firstNameEn-help">กรอกชื่อภาษาอังกฤษตามหนังสือเดินทางหรือเอกสารทางการ</p>
+                <p class="field-error" id="firstNameEn-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="lastNameEn">นามสกุลผู้เรียน (English) <span class="required-marker">*</span></label>
+                <input
+                  id="lastNameEn"
+                  name="lastNameEn"
+                  type="text"
+                  autocomplete="family-name"
+                  aria-describedby="lastNameEn-help lastNameEn-error"
+                />
+                <p class="field-help" id="lastNameEn-help">กรอกนามสกุลภาษาอังกฤษตามเอกสารทางการ</p>
+                <p class="field-error" id="lastNameEn-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="nicknameTh">ชื่อเล่นผู้เรียน (ภาษาไทย) <span class="required-marker">*</span></label>
+                <input
+                  id="nicknameTh"
+                  name="nicknameTh"
+                  type="text"
+                  aria-describedby="nicknameTh-help nicknameTh-error"
+                />
+                <p class="field-help" id="nicknameTh-help">ชื่อเล่นภาษาไทยสำหรับการติดต่อภายในหลักสูตร</p>
+                <p class="field-error" id="nicknameTh-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="nicknameEn">ชื่อเล่นผู้เรียน (ภาษาอังกฤษ) <span class="required-marker">*</span></label>
+                <input
+                  id="nicknameEn"
+                  name="nicknameEn"
+                  type="text"
+                  aria-describedby="nicknameEn-help nicknameEn-error"
+                />
+                <p class="field-help" id="nicknameEn-help">ชื่อเล่นภาษาอังกฤษสำหรับกิจกรรมและเอกสารประกอบ</p>
+                <p class="field-error" id="nicknameEn-error"></p>
+              </div>
+
+              <fieldset class="form-field form-field--full form-field--fieldset">
+                <legend>วัน/เดือน/ปีเกิดผู้เรียน (ค.ศ.) <span class="required-marker">*</span></legend>
+                <div class="date-grid" aria-describedby="birthDate-help birthDate-error">
+                  <label class="sr-only" for="birthDay">Day</label>
+                  <input id="birthDay" name="birthDay" type="text" inputmode="numeric" maxlength="2" placeholder="DD" />
+                  <label class="sr-only" for="birthMonth">Month</label>
+                  <input
+                    id="birthMonth"
+                    name="birthMonth"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="2"
+                    placeholder="MM"
+                  />
+                  <label class="sr-only" for="birthYear">Year</label>
+                  <input
+                    id="birthYear"
+                    name="birthYear"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="4"
+                    placeholder="YYYY"
+                  />
+                </div>
+                <p class="field-help" id="birthDate-help">กรอกเป็นค.ศ. เช่น 21 / 07 / 1988</p>
+                <p class="field-error" id="birthDate-error"></p>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="section-contact">
+            <div class="section-heading">
+              <p class="section-chip section-chip--dark">Section 02</p>
+              <h3 id="section-contact">Contact & Work Details</h3>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <label for="email">อีเมล <span class="required-marker">*</span></label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="name@company.com"
+                  aria-describedby="email-help email-error"
+                />
+                <p class="field-help" id="email-help">ใช้อีเมลที่สามารถติดต่อได้จริงเพื่อรับการแจ้งเตือนจากหลักสูตร</p>
+                <p class="field-error" id="email-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">เบอร์โทรติดต่อ <span class="required-marker">*</span></label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="0987654321"
+                  aria-describedby="phone-help phone-error"
+                />
+                <p class="field-help" id="phone-help">ระบบจะปรับรูปแบบเป็นตัวเลขเพื่อเตรียมส่งต่อไปยัง API</p>
+                <p class="field-error" id="phone-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="lineId">Line ID</label>
+                <input id="lineId" name="lineId" type="text" aria-describedby="lineId-help lineId-error" />
+                <p class="field-help" id="lineId-help">กรอกเมื่อสะดวก เพื่อใช้เป็นช่องทางติดต่อเสริม</p>
+                <p class="field-error" id="lineId-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="jobTitle">ตำแหน่งงาน <span class="required-marker">*</span></label>
+                <input id="jobTitle" name="jobTitle" type="text" aria-describedby="jobTitle-help jobTitle-error" />
+                <p class="field-help" id="jobTitle-help">ระบุตำแหน่งปัจจุบันของผู้สมัคร</p>
+                <p class="field-error" id="jobTitle-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="organization">องค์กร <span class="required-marker">*</span></label>
+                <input id="organization" name="organization" type="text" aria-describedby="organization-help organization-error" />
+                <p class="field-help" id="organization-help">ชื่อองค์กร หน่วยงาน หรือบริษัทที่สังกัด</p>
+                <p class="field-error" id="organization-error"></p>
+              </div>
+
+              <div class="form-field form-field--full">
+                <label for="coordinatorInfo">ผู้ประสานงาน (ชื่อ, อีเมล, เบอร์โทรศัพท์)</label>
+                <textarea
+                  id="coordinatorInfo"
+                  name="coordinatorInfo"
+                  rows="4"
+                  aria-describedby="coordinatorInfo-help coordinatorInfo-error"
+                ></textarea>
+                <p class="field-help" id="coordinatorInfo-help">
+                  กรอกเฉพาะในกรณีที่ผู้ประสานงานกับผู้เรียนเป็นคนละคนกัน เช่น ทีมเลขานุการหรือ HR
+                </p>
+                <p class="field-error" id="coordinatorInfo-error"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="section-background">
+            <div class="section-heading">
+              <p class="section-chip section-chip--dark">Section 03</p>
+              <h3 id="section-background">Education & Background</h3>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <label for="educationHistory">ประวัติการศึกษา <span class="required-marker">*</span></label>
+                <textarea
+                  id="educationHistory"
+                  name="educationHistory"
+                  rows="4"
+                  aria-describedby="educationHistory-help educationHistory-error"
+                ></textarea>
+                <p class="field-help" id="educationHistory-help">
+                  สรุปสถาบัน วุฒิการศึกษา และข้อมูลสำคัญที่เกี่ยวข้องกับประวัติการเรียนรู้ของผู้สมัคร
+                </p>
+                <p class="field-error" id="educationHistory-error"></p>
+              </div>
+
+              <div class="form-field form-field--full">
+                <label for="executivePrograms">หลักสูตรผู้บริหารที่เคยอบรม</label>
+                <textarea
+                  id="executivePrograms"
+                  name="executivePrograms"
+                  rows="3"
+                  aria-describedby="executivePrograms-help executivePrograms-error"
+                ></textarea>
+                <p class="field-help" id="executivePrograms-help">
+                  ระบุหลักสูตรผู้บริหารหรือโปรแกรมฝึกอบรมที่เคยเข้าร่วม หากมี
+                </p>
+                <p class="field-error" id="executivePrograms-error"></p>
+              </div>
+
+              <div class="form-field form-field--full">
+                <label for="additionalInfo">ข้อมูลเพิ่มเติม (ถ้ามี)</label>
+                <textarea
+                  id="additionalInfo"
+                  name="additionalInfo"
+                  rows="4"
+                  aria-describedby="additionalInfo-help additionalInfo-error"
+                ></textarea>
+                <p class="field-help" id="additionalInfo-help">
+                  ข้อมูลอื่นที่คณะกรรมการพิจารณาควรทราบ เช่น ผลงาน โครงการที่เกี่ยวข้อง หรือบทบาทสำคัญในองค์กร
+                </p>
+                <p class="field-error" id="additionalInfo-error"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="section-files">
+            <div class="section-heading">
+              <p class="section-chip section-chip--dark">Section 04</p>
+              <h3 id="section-files">Supporting Files</h3>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="photoFile">รูปถ่าย <span class="required-marker">*</span></label>
+                <p class="field-help" id="photoFile-help">
+                  สำหรับใช้จัดทำทำเนียบรุ่นและประชาสัมพันธ์ผู้ผ่านการคัดเลือกเข้าร่วมหลักสูตร
+                </p>
+                <div class="file-picker" data-file-wrapper="photoFile">
+                  <input
+                    id="photoFile"
+                    name="photoFile"
+                    type="file"
+                    accept=".jpg,.jpeg,.png,.webp"
+                    aria-describedby="photoFile-help photoFile-error"
+                  />
+                  <div class="file-picker__ui">
+                    <span class="file-picker__button">Choose File</span>
+                    <span class="file-picker__label" data-file-label="photoFile">ยังไม่ได้เลือกไฟล์</span>
+                  </div>
+                </div>
+                <p class="field-error" id="photoFile-error"></p>
+              </div>
+
+              <div class="form-field">
+                <label for="resumeFile">CV / Resume <span class="required-marker">*</span></label>
+                <p class="field-help" id="resumeFile-help">
+                  ประวัติย่อปัจจุบัน เช่น ประวัติการทำงาน ประวัติการศึกษา หรือผลงานที่เกี่ยวข้อง
+                </p>
+                <div class="file-picker" data-file-wrapper="resumeFile">
+                  <input
+                    id="resumeFile"
+                    name="resumeFile"
+                    type="file"
+                    accept=".pdf,.doc,.docx"
+                    aria-describedby="resumeFile-help resumeFile-error"
+                  />
+                  <div class="file-picker__ui">
+                    <span class="file-picker__button">Choose File</span>
+                    <span class="file-picker__label" data-file-label="resumeFile">ยังไม่ได้เลือกไฟล์</span>
+                  </div>
+                </div>
+                <p class="field-error" id="resumeFile-error"></p>
+              </div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="section-consent">
+            <div class="section-heading">
+              <p class="section-chip section-chip--dark">Section 05</p>
+              <h3 id="section-consent">Consent & Submission</h3>
+            </div>
+
+            <div class="consent-card">
+              <p class="consent-copy">
+                ข้อมูลส่วนบุคคลทั้งหมดที่ให้ไว้กับดีกรีพลัสในแบบฟอร์มนี้จะนำไปใช้เพื่อวัตถุประสงค์ในการติดต่อท่าน
+                เพื่อแจ้งข้อมูลเพิ่มเติมเกี่ยวกับหลักสูตร และประมวลผลตามคำขอของท่านเท่านั้น
+              </p>
+              <label class="checkbox-field" for="marketingConsent">
+                <input id="marketingConsent" name="marketingConsent" type="checkbox" />
+                <span>
+                  ยินยอมให้ตัวแทนของดีกรีพลัสสามารถติดต่อท่าน และนำเสนอหลักสูตรอื่น ๆ
+                  ที่เกี่ยวข้องผ่านช่องทางการติดต่อที่ท่านให้ไว้
+                </span>
+              </label>
+              <p class="consent-copy consent-copy--small">
+                ท่านสามารถอ่าน
+                <a href="#" class="privacy-link">คำชี้แจงสิทธิส่วนบุคคล (Privacy Notice)</a>
+                ได้ที่นี่ และสามารถเลือกไม่ให้ความยินยอมได้ โดยไม่จำเป็นต้องเลือกช่องนี้
+              </p>
+            </div>
+
+            <div class="submit-row">
+              <button id="submit-button" class="submit-button" type="submit">Submit Application</button>
+              <p class="submit-note">
+                ระบบเริ่มต้นด้วยโหมดจำลองการส่งข้อมูล และพร้อมเปลี่ยนไปใช้ API จริงผ่านการตั้งค่าใน
+                <code>window.CreativExApplyForm.init()</code>
+              </p>
+            </div>
+          </section>
+        </form>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+    <script>
+      window.CreativExApplyForm.init({
+        apiBaseUrl: "",
+        submitPath: "/applications",
+        mockMode: true,
+        timeoutMs: 15000,
+        extraHeaders: {},
+        onSuccess: null,
+        onError: null
+      });
+    </script>
+  </body>
+</html>
